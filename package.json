@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Hello world",
   "main": "server.js",
+  "type":"module",
   "scripts": {
     "test": "test",
     "start": "node server.js"
@@ -13,3 +14,4 @@
     "nodemon": "^3.1.10"
   }
 }
+
