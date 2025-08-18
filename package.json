@@ -1,0 +1,15 @@
+{
+  "name": "node_prajwal",
+  "version": "1.0.0",
+  "description": "Hello world",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "Prajwal Bankar",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
