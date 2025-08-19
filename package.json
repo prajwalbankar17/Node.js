@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Hello world",
   "main": "server.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "test",
     "start": "node server.js"
@@ -11,7 +11,8 @@
   "author": "Prajwal Bankar",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.6.0",
+    "express": "^5.1.0",
     "nodemon": "^3.1.10"
   }
 }
-
