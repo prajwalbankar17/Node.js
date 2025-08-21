@@ -24,14 +24,36 @@
       <ul id="shortened-urls"></ul>
     </div>
     <script>
-        document.getElementById('shorten-form').addEventListener('submit', (event) => {
-            event.preventDefault()
+      document
+        .getElementById("shorten-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
 
-            const formData = new FormData(event.target)
-            const url = formData.get('url');
-            const shortCode = formData.get('shortCode');
-            console.log(url, shortCode);
-        })
+          const formData = new FormData(event.target);
+          const url = formData.get("url");
+          const shortCode = formData.get("shortCode");
+          console.log(url, shortCode);
+
+          try {
+            const response = await fetch("/shorten", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ url, shortCode }),
+            });
+
+            if(response.ok) {
+              alert("Form submitted successfully!");
+              event.target.reset();
+            } else {
+              const errorMessage = await response.text();
+              alert(errorMessage)
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        });
     </script>
   </body>
 </html>
