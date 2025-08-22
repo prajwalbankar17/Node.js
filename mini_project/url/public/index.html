@@ -33,7 +33,8 @@
         list.innerHTML = ""; 
         for (const [shortCode, url] of Object.entries(links)) {
           const li = document.createElement("li");
-          li.innerHTML = `<a href="/${shortCode}" target="_blank">${window.location.origin}/${shortCode}</a> - ${url}`;
+          const truncatedURL = url.length > 30 ? `${url.slice(0, 30)}...` : url;
+          li.innerHTML = `<a href="/${shortCode}" target="_blank">${window.location.origin}/${shortCode}</a> - ${truncatedURL}`;
           list.appendChild(li);
         }
       };
