@@ -32,19 +32,18 @@ const loadLinks = async () => {
   }
 };
 
-const saveLinks = async (links) => {
-  await writeFile(DATA_FILE, JSON.stringify(links));
-};
-
 const server = createServer(async (req, res) => {
   console.log(req.url);
 
   if (req.method === "GET") {
     if (req.url === "/") {
       return serveFile(res, path.join("public", "index.html"), "text/html");
-    }
-    if (req.url === "/style.css") {
+    } else if (req.url === "/style.css") {
       return serveFile(res, path.join("public", "style.css"), "text/css");
+    } else if (req.url === "/links") {
+      const links = await loadLinks();
+      res.writeHead(200, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify(links ))
     }
   }
 
